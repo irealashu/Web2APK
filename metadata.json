@@ -1,0 +1,6 @@
+{
+  "name": "WebToAPK Studio - Website to Android APK Converter",
+  "description": "Convert any website URL into an Android application with circular favicon icon, live mobile simulator, and direct APK download.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

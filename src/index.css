@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* Smooth Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(51, 65, 85, 0.8);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.6);
+  }
+
+  /* GPU-Accelerated Hardware Transitions to Prevent Element Flickering */
+  .gpu-layer {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity;
+  }
+
+  /* Dedicated Permission Scroll View */
+  .permission-scroll-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(52, 211, 153, 0.4) rgba(15, 23, 42, 0.7);
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .permission-scroll-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  .permission-scroll-container::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 9999px;
+    margin: 4px 0;
+  }
+  .permission-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(52, 211, 153, 0.35);
+    border-radius: 9999px;
+    border: 1px solid rgba(52, 211, 153, 0.15);
+  }
+  .permission-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(52, 211, 153, 0.7);
+  }
+}
+
+/* Stable Fade In Animation */
+@keyframes stableFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: stableFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle Hover Lift without flickering */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-1px);
+}
+.hover-lift:active {
+  transform: translateY(0);
+}
